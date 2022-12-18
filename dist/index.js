@@ -2,6 +2,7 @@
 // console.log("ITS WORKING");
 
 class Player {
+  static description = "Player in our Game";
   #score = 0; // only usuable inside the player class (private identifier)
   numLives = 10; // note how we do not have to do this inside of the constructor (these are class fields -- must be hard-coded)
 
@@ -40,6 +41,10 @@ class Player {
     }
     this.#score = val;
   }
+
+  static randomPlayer() {
+    return new Player("Andy", "Samberg");
+  }
 }
 
 const player1 = new Player("blue", "steele");
@@ -52,6 +57,9 @@ console.log(player1.score);
 console.log(player1.fullName); // treated as a property
 player1.score = 500;
 console.log(player1.score);
+
+console.log(Player.description); // defined with a static property
+console.log(Player.randomPlayer()); // could store value in a variable
 // player1.score = -5;
 // console.log(player1.score); will now get an error
 // player1.#secret();
