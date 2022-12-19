@@ -30,12 +30,39 @@ class Player {
     get score() {
         return this._score;
     }
+    set score(newScore) {
+        if (newScore < 0) {
+            throw new Error("Error: Cannot be less than zero");
+        }
+        this._score = newScore;
+    }
+}
+// protected methods
+class SuperPlayer extends Player {
+    constructor() {
+        super(...arguments);
+        this.isAdmin = true;
+    }
+    maxScore() {
+        this._score = 99999; // note if this was private instead of protected would not be able to access
+    }
 }
 const elton = new Player("Elton", "John");
 console.log(elton);
 console.log(elton.score);
 console.log(elton.fullName);
-// elton.sayyHi(); will not compile
-// elton.first = "elon"; will get an error because it is readonly
-// note the public and private modifiers
-// by default everything in a class is considered public
+elton.score = -23;
+console.log(elton.score);
+class Bike {
+    constructor(color) {
+        this.color = color;
+    }
+}
+class Jacket {
+    constructor(color, brand) {
+        this.color = color;
+        this.brand = brand;
+    }
+}
+const bike1 = new Bike("red");
+const jacket1 = new Jacket("blue", "burberry");
