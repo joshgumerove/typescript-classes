@@ -27,11 +27,16 @@ class Player {
   private sayHi() {
     console.log("hello world");
   }
+
+  get fullName(): string {
+    return `${this.first} ${this.last}`;
+  }
 }
 
 const elton = new Player("Elton", "John");
 console.log(elton);
 console.log(elton.score);
+console.log(elton.fullName);
 
 // elton.sayyHi(); will not compile
 
