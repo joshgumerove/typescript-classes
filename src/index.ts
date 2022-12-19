@@ -100,15 +100,34 @@ abstract class Employee {
 }
 
 class FullTimeEmployee extends Employee {
+  constructor(first: string, last: string, private salary: number) {
+    super(first, last);
+  }
   getPay(): number {
-    return 100;
+    return this.salary;
   }
 }
 
 class PartTimeEmployee extends Employee {
+  constructor(
+    first: string,
+    last: string,
+    private hourlyRate: number,
+    private hoursWorked: number
+  ) {
+    super(first, last);
+  }
   getPay(): number {
-    return 10;
+    return this.hourlyRate * this.hoursWorked;
   } // must have these methods due to the rule set-up in the abstract class
 }
 
 // const cat1 = new Employee(); // cannot create instance on own of cat because is abstract class
+
+const employee1 = new FullTimeEmployee("Josh", "Gumerove", 80000);
+console.log(employee1.getPay());
+console.log(employee1.greet());
+
+const employee2 = new PartTimeEmployee("Brennan", "Gumerove", 300, 5000);
+console.log(employee2.getPay());
+console.log(employee2.greet());

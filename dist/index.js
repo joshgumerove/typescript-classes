@@ -80,13 +80,28 @@ class Employee {
     } // could not have this in an interface (has more functionality/can be viewed as a hybrid)
 }
 class FullTimeEmployee extends Employee {
+    constructor(first, last, salary) {
+        super(first, last);
+        this.salary = salary;
+    }
     getPay() {
-        return 100;
+        return this.salary;
     }
 }
 class PartTimeEmployee extends Employee {
+    constructor(first, last, hourlyRate, hoursWorked) {
+        super(first, last);
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
     getPay() {
-        return 10;
+        return this.hourlyRate * this.hoursWorked;
     } // must have these methods due to the rule set-up in the abstract class
 }
 // const cat1 = new Employee(); // cannot create instance on own of cat because is abstract class
+const employee1 = new FullTimeEmployee("Josh", "Gumerove", 80000);
+console.log(employee1.getPay());
+console.log(employee1.greet());
+const employee2 = new PartTimeEmployee("Brennan", "Gumerove", 300, 5000);
+console.log(employee2.getPay());
+console.log(employee2.greet());
