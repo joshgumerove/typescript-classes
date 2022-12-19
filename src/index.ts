@@ -56,7 +56,7 @@ const elton = new Player("Elton", "John");
 console.log(elton);
 console.log(elton.score);
 console.log(elton.fullName);
-elton.score = -23;
+// elton.score = -23;
 console.log(elton.score);
 
 // elton.sayyHi(); will not compile
@@ -73,9 +73,16 @@ class Bike implements Colorful {
   constructor(public color: string) {}
 }
 
-class Jacket implements Colorful {
+class Jacket implements Colorful, Printable {
   constructor(public color: string, public brand: string) {}
+  print(): void {
+    console.log("printing");
+  }
 }
 
 const bike1 = new Bike("red");
 const jacket1 = new Jacket("blue", "burberry");
+
+interface Printable {
+  print(): void;
+}

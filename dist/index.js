@@ -51,7 +51,7 @@ const elton = new Player("Elton", "John");
 console.log(elton);
 console.log(elton.score);
 console.log(elton.fullName);
-elton.score = -23;
+// elton.score = -23;
 console.log(elton.score);
 class Bike {
     constructor(color) {
@@ -62,6 +62,9 @@ class Jacket {
     constructor(color, brand) {
         this.color = color;
         this.brand = brand;
+    }
+    print() {
+        console.log("printing");
     }
 }
 const bike1 = new Bike("red");
