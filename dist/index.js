@@ -17,7 +17,7 @@ class Player {
     constructor(first, last) {
         this.first = first;
         this.last = last;
-        this.score = 0; // do not need to use but can help provide some more clarity #score in regular js
+        this._score = 0; // do not need to use but can help provide some more clarity #score in regular js
         // alternative shorthand syntax
         this.sayHi();
     }
@@ -26,6 +26,9 @@ class Player {
     }
     get fullName() {
         return `${this.first} ${this.last}`;
+    }
+    get score() {
+        return this._score;
     }
 }
 const elton = new Player("Elton", "John");

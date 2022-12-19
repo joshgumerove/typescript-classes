@@ -17,7 +17,7 @@ console.log("ITS WORKING");
 // }
 
 class Player {
-  public score: number = 0; // do not need to use but can help provide some more clarity #score in regular js
+  private _score: number = 0; // do not need to use but can help provide some more clarity #score in regular js
 
   constructor(public first: string, public last: string) {
     // alternative shorthand syntax
@@ -30,6 +30,10 @@ class Player {
 
   get fullName(): string {
     return `${this.first} ${this.last}`;
+  }
+
+  get score(): number {
+    return this._score;
   }
 }
 
