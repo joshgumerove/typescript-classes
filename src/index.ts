@@ -20,6 +20,8 @@ const elton = new Player("Elton", "John");
 console.log(elton);
 console.log(elton.score);
 
+// elton.sayyHi();
+
 // elton.first = "elon"; will get an error because it is readonly
 // note the public and private modifiers
 // by default everything in a class is considered public
