@@ -69,3 +69,24 @@ class Jacket {
 }
 const bike1 = new Bike("red");
 const jacket1 = new Jacket("blue", "burberry");
+// abastract classes -- exclusive to typescript
+class Employee {
+    constructor(first, last) {
+        this.first = first;
+        this.last = last;
+    }
+    greet() {
+        console.log("Hello Comrade");
+    } // could not have this in an interface (has more functionality/can be viewed as a hybrid)
+}
+class FullTimeEmployee extends Employee {
+    getPay() {
+        return 100;
+    }
+}
+class PartTimeEmployee extends Employee {
+    getPay() {
+        return 10;
+    } // must have these methods due to the rule set-up in the abstract class
+}
+// const cat1 = new Employee(); // cannot create instance on own of cat because is abstract class
